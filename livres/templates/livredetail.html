@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Détails du Livre{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Détails du Livre</h2>
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">{{ livre.titre }}</h3>
+      <p class="card-text"><strong>Auteur :</strong> {{ livre.auteur }}</p>
+      <p class="card-text">
+        <strong>Date de publication :</strong> {{ livre.date_publication }}
+      </p>
+      <p class="card-text">
+        <strong>Disponibilité :</strong>
+        {% if livre.disponible %}
+        <span class="text-success">Disponible</span>
+        {% else %}
+        <span class="text-danger">Non disponible</span>
+        {% endif %}
+      </p>
+    </div>
+  </div>
+  <a href="{% url 'livres_disponibles' %}" class="btn btn-secondary mt-3">Retour à la Liste</a>
+</div>
+{% endblock %}

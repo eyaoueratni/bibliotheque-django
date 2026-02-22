@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Emprunter un Livre{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Emprunter le Livre : {{ livre.titre }}</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Emprunter</button>
+  </form>
+  <a href="{% url 'livres_disponibles' %}" class="btn btn-secondary mt-3">Retour à la Liste</a>
+</div>
+{% endblock %}

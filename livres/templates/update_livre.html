@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Modifier le Livre{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Modifier le Livre</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+  </form>
+  <a href="{% url 'livres_disponibles' %}" class="btn btn-secondary mt-3">Retour à la Liste</a>
+</div>
+{% endblock %}
